@@ -1,6 +1,6 @@
 node{
    stage('GIT Checkout'){
-     git 'https://github.com/john-s21/AWS-BUILD.git'
+     git 'https://github.com/john-s21/aws.git'
      sh 'echo GIT pull success! '
    }
    stage('Terraform Initialize'){
