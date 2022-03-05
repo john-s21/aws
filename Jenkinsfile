@@ -40,11 +40,11 @@ pipeline {
    post {
         success{
             sh 'rm -rf mplan'
-            sh 'git remote add origin https://github.com/john-s21/aws.git'
-            sh 'git checkout $BRANCH_NAME'
+            sh 'git status'
+            sh 'git checkout main'
             sh 'git branch'
             sh 'git add *'
-            sh 'git commit -m "ec2 to git"'
+            sh 'git commit -m "let try again'
             sh 'git push -u origin main'
         }  
         failure {
