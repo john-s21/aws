@@ -23,9 +23,6 @@ pipeline {
             steps {
                sh 'terraform validate'
             }
-            steps {
-               sh 'terraform plan -out sbi'
-            }
         }
       }
    post {
