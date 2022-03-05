@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('SCM COPY FILES') {
             steps {
-                git 'https://github.com/john-s21/aws.git'
+                sh 'echo GIT CHECKOUT done'
             }
         }
     }
