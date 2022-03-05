@@ -15,14 +15,14 @@
 
 pipeline {
    agent any
-    stages {
+      stages {
         stage('SCM COPY FILES') {
             steps {
                 sh 'echo GIT CHECKOUT done'
             }
         }
     }
-    post {
+   post {
         success{
             echo "Deployment Success"
         }  
