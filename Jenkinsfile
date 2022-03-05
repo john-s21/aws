@@ -40,11 +40,11 @@ pipeline {
    post {
         success{
             sh 'rm -rf mplan'
-            sh 'git status -s'
+            sh 'git remote set-url sbi https://github.com/john-s21/aws.git'
             sh 'git checkout $BRANCH_NAME'
             sh 'git branch'
             sh 'git add *'
-            sh 'git commit -m "push 2 git"'
+            sh 'git commit -m "ec2 to git"'
             sh 'git push -u origin main'
         }  
         failure {
