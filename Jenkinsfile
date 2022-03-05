@@ -44,7 +44,7 @@ pipeline {
             sh 'git checkout main'
             sh 'git branch'
             sh 'git add *'
-            sh 'git commit -m final commit'
+            sh 'git commit -m "commit"'
             sh 'git push -u origin main'
         }  
         failure {
