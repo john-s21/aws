@@ -24,10 +24,6 @@ pipeline {
         stage('Terraform Validation') {
             steps {
                sh 'terraform validate'
-            }
-        }
-        stage('Terraform Planning') {
-            steps {
                sh 'terraform plan'
             }
         }
