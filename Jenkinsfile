@@ -40,7 +40,7 @@ pipeline {
    post {
         success{
             sh 'rm -rf mplan'
-            sh 'git remote set-url sbi https://github.com/john-s21/aws.git'
+            sh 'git remote add origin https://github.com/john-s21/aws.git'
             sh 'git checkout $BRANCH_NAME'
             sh 'git branch'
             sh 'git add *'
