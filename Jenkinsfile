@@ -45,7 +45,7 @@ pipeline {
             sh 'rm -rf mplan'
             sh 'git add *'
             sh 'git status'
-            sh 'git commit -m "commit"'
+            //sh 'git commit -m "commit"'
         }  
         failure {
             echo "Deployment Failed--Check Logs"
