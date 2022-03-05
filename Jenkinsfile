@@ -36,16 +36,25 @@ pipeline {
                sh 'terraform fmt'
            }
         }
+        stage('GIT Publish'){
+           steps{
+               sh 'git branch'
+               sh 'git config --global user.email "bijudonbosco1995@gmail.com"'
+               sh 'git config --global user.name "john-s21"'
+               sh 'rm -rf mplan'
+               sh 'git add *'
+               sh 'git status'
+               sh 'git checkout main'
+               withCredentials([gitUsernamePassword(credentialsId: '692f550f-1c9c-4bf5-8466-3ce164752fd0', gitToolName: 'Default')]) {
+                   sh 'git push origin main'
+                }
+           }
+        }
       }
    post {
         success{
-            sh 'git branch'
-            sh 'git config --global user.email "bijudonbosco1995@gmail.com"'
-            sh 'git config --global user.name "john-s21"'
-            sh 'rm -rf mplan'
-            sh 'git add *'
-            sh 'git status'
-            //sh 'git commit -m "commit"'
+            
+            echo "SUCCESS!!!"
         }  
         failure {
             echo "Deployment Failed--Check Logs"
