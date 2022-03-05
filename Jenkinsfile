@@ -40,14 +40,14 @@ pipeline {
    post {
         success{
             sh 'rm -rf mplan'
-            sh 'git config user.email "bijudonbosco1995@gmail.com"'
-            sh 'git config user.name "john-s21"'
+            sh 'git config --global user.email "bijudonbosco1995@gmail.com"'
+            sh 'git config --global user.name "john-s21"'
             sh 'git status'
             sh 'git checkout main'
             sh 'git branch'
             sh 'git add *'
             sh 'git commit -m "commit"'
-            sh 'git push -u origin main'
+            sh 'git push origin main'
         }  
         failure {
             echo "Deployment Failed--Check Logs"
