@@ -39,11 +39,11 @@ pipeline {
       }
    post {
         success{
-            sh  """#!/bin/bash
-                git status"""
-            sh 'git add *'
-            sh 'git commit -m "git publishing"'
-            sh 'git push origin HEAD:main'
+            sh 'rm -rf mplan'
+            sh 'git status -s'
+            sh 'git add .'
+            sh 'git commit -m "git upload"'
+            sh 'git push origin main'
         }  
         failure {
             echo "Deployment Failed--Check Logs"
