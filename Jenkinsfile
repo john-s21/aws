@@ -42,8 +42,8 @@ pipeline {
             sh 'rm -rf mplan'
             sh 'git status -s'
             sh 'git add .'
-            sh 'git commit -m "git publish ec2"'
-            sh 'git push remote origin:main'
+            sh 'git commit -m "git publish ec2 now"'
+            sh 'git push -u origin main'
         }  
         failure {
             echo "Deployment Failed--Check Logs"
