@@ -16,9 +16,11 @@
 pipeline {
    agent any
       stages {
-        stage('SCM COPY FILES') {
+        stage('Terraform Initialize') {
             steps {
-                sh 'echo GIT CHECKOUT done'
+                sh """ terraform init
+                       terraform validate
+                       echo Terraform operations are done!"""
             }
         }
     }
