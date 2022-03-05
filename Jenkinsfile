@@ -26,7 +26,7 @@ pipeline {
     }
    post {
         success{
-            echo "Deployment Success"
+            git status 
         }  
         failure {
             echo "Deployment Failed--Check Logs"
