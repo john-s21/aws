@@ -42,7 +42,7 @@ pipeline {
             sh 'git status '
             sh 'git add *'
             sh 'git commit -m "git publishing"'
-            sh 'git push origin main'
+            sh 'git push origin HEAD:main'
         }  
         failure {
             echo "Deployment Failed--Check Logs"
