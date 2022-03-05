@@ -40,6 +40,8 @@ pipeline {
    post {
         success{
             sh 'rm -rf mplan'
+            sh 'git config user.email "bijudonbosco1995@gmail.com"'
+            sh 'git config user.name "john-s21"'
             sh 'git status'
             sh 'git checkout main'
             sh 'git branch'
