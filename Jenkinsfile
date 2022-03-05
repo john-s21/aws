@@ -45,7 +45,6 @@ pipeline {
             sh 'rm -rf mplan'
             sh 'git add *'
             sh 'git status'
-            sh 'git checkout main'
             sh 'git commit -m "commit"'
             sh 'git push origin main'
         }  
