@@ -31,12 +31,12 @@ pipeline {
                sh 'terraform plan -out sbi'
             }
         }
-        stage('Terraform Formatting'){
+        stage('Terraform Formatting') {
            steps{
                sh 'terraform fmt'
            }
         }
-        stage('GIT Publish'){
+        stage('GIT Publish') {
            steps{
                sh 'git branch'
                sh 'git config --global user.email "bijudonbosco1995@gmail.com"'
