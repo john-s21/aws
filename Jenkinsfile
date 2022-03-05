@@ -45,8 +45,8 @@ pipeline {
                sh 'git add *'
                sh 'git status'
                sh 'git checkout main'
-               withCredentials([gitUsernamePassword(credentialsId: '692f550f-1c9c-4bf5-8466-3ce164752fd0', gitToolName: 'Default')]) {
-                   sh 'git push origin main'
+               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '692f550f-1c9c-4bf5-8466-3ce164752fd0', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+                    sh("git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@aws.git")
                 }
            }
         }
