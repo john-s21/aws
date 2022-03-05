@@ -41,8 +41,10 @@ pipeline {
         success{
             sh 'rm -rf mplan'
             sh 'git status -s'
-            sh 'git add .'
-            sh 'git commit -m "git publish ec2 now"'
+            sh 'git checkout $BRANCH_NAME'
+            sh 'git branch'
+            sh 'git add *'
+            sh 'git commit -m "push 2 git"'
             sh 'git push -u origin main'
         }  
         failure {
