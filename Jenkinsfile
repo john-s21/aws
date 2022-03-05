@@ -31,7 +31,7 @@ pipeline {
                sh 'terraform plan -out sbi'
             }
         }
-        stage ('Terraform Formatting'){
+        stage('Terraform Formatting'){
            steps{
                sh 'terraform fmt'
            }
@@ -40,6 +40,9 @@ pipeline {
    post {
         success{
             sh 'git status '
+            sh 'git add *'
+            sh 'git commit -m "git publishing"'
+            sh 'git push sbi main'
         }  
         failure {
             echo "Deployment Failed--Check Logs"
