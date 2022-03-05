@@ -20,9 +20,6 @@ pipeline {
             steps {
                sh 'terraform init'
             }
-            steps {
-               sh 'terraform validate'
-            }
         }
       }
    post {
