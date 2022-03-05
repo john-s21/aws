@@ -6,6 +6,7 @@ node{
    stage('Terraform Initialize'){
       sh 'terraform init '
       sh 'terraform validate'
+      sh 'echo Terraform Operations are done!'
    }
    stage('Terraform Code formating'){
       sh 'terraform fmt'
