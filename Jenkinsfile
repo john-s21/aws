@@ -16,7 +16,7 @@
 pipeline {
    agent any
       stages {
-        stage('Terraform Initialize') {
+        stage('Terraform Initialization') {
             steps {
                sh 'terraform init'
             }
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Terraform Planning') {
             steps {
-               sh 'terraform plan -out sbi'
+               sh 'terraform plan'
             }
         }
       }
