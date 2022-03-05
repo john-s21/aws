@@ -27,7 +27,7 @@ pipeline {
                sh 'terraform plan -out sbi'
             }
         }
-    }
+      }
    post {
         success{
             sh 'git status '
