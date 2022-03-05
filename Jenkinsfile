@@ -28,8 +28,13 @@ pipeline {
         }
         stage('Terraform Planing') {
             steps {
-               sh 'terraform plan'
+               sh 'terraform plan -out sbi'
             }
+        }
+        stage ('Terraform Formatting'){
+           steps{
+               sh 'terraform fmt'
+           }
         }
       }
    post {
