@@ -18,9 +18,13 @@ pipeline {
       stages {
         stage('Terraform Initialize') {
             steps {
-                sh """ terraform init
-                       terraform validate
-                       echo Terraform operations are done!"""
+               sh 'terraform init'
+            }
+            steps {
+               sh 'terraform validate'
+            }
+            steps {
+               sh 'terraform plan -out sbi'
             }
         }
     }
