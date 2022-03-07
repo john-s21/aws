@@ -53,7 +53,7 @@ pipeline {
             echo "SUCCESS!!!"
         }  
         failure {
-            echo "Deployment Failed
+            echo "Deployment Failed"
         }
     }
 }
