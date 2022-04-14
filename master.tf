@@ -4,7 +4,7 @@ resource "aws_instance" "Jenkins-Master" {
              instance_type          =      "t2.micro"
   vpc_security_group_ids = ["sg-a8414ce0"]
   subnet_id              =          "subnet-4eb39d02"
-  key_name                        = "allpurposekey"
+  key_name                        =  "allpurposekey"
   monitoring             = true
   # user_data              = file("D:/Terraform/pipeline sh/usd.sh")
 
