@@ -39,12 +39,12 @@ pipeline {
         stage('GIT Publish') {
            steps{
                sh 'git branch'
-               sh 'git config --global user.email "bijudonbosco1995@gmail.com"'
-               sh 'git config --global user.name "john-s21"'
-               sh 'rm -rf mplan'
-               sh 'git add *'
-               sh 'git status'
-               sh 'git checkout main'
+            //    sh 'git config --global user.email "bijudonbosco1995@gmail.com"'
+            //    sh 'git config --global user.name "john-s21"'
+            //    sh 'rm -rf mplan'
+            //    sh 'git add *'
+            //    sh 'git status'
+            //    sh 'git checkout main'
            }
         }
       }
