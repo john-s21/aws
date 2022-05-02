@@ -1,7 +1,7 @@
 resource "aws_instance" "Jenkins-Master" {
-  ami                    = "ami-0dd0ccab7e2801812"
-  count                  = 2
-             instance_type          =      "t2.micro"
+  ami                    = lookup(var.ec2_ami,var.region)
+  count                  = 3
+             instance_type          =      var.instance_type
   vpc_security_group_ids = ["sg-a8414ce0"]
   subnet_id              =          "subnet-4eb39d02"
   key_name                        = "allpurposekey"
@@ -11,6 +11,6 @@ resource "aws_instance" "Jenkins-Master" {
   tags = {
     Terraform   = "True"
     Environment =          "DEV"
-    Name        = "Jenkins-Server"
+    Name        = "Jenkins-Server-${count.index}"
   }
 }
