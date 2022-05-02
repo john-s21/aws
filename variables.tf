@@ -7,6 +7,15 @@ default = {
   }
 }
 
+variable "keyname" {
+  type = map
+
+default = {
+    us-east-2 = "allpurposekey"
+    ap-south-1 = "apsouth"
+    }
+}
+
 # Creating a Variable for instance_type
 variable "instance_type" {    
   type = string
@@ -14,8 +23,5 @@ variable "instance_type" {
 
 #Creating a variable for region
 variable "region" {
-    type = string
-}
-variable "key" {
     type = string
 }
