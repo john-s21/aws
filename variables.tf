@@ -3,7 +3,7 @@ variable "ec2_ami" {
 
 default = {
     us-east-2 = "ami-0c6a6b0e75b2b6ce7"
-    us-east-1 = "ami-0f9fc25dd2506cf6d"
+    ap-south-1 = "ami-0a3277ffce9146b74"
   }
 }
 
@@ -14,5 +14,8 @@ variable "instance_type" {
 
 #Creating a variable for region
 variable "region" {
+    type = string
+}
+variable "key" {
     type = string
 }
