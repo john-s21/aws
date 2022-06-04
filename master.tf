@@ -6,7 +6,7 @@ resource "aws_instance" "Jenkins-Master" {
   # subnet_id              =          "subnet-4eb39d02"
   key_name                        = lookup(var.keyname,var.region)
   monitoring             = true
-  # user_data              = file("D:/Terraform/pipeline sh/usd.sh")
+  # user_data              = file("D:/Terraform/pipeline sh/ud.sh")
 
   tags = {
     Terraform   = "True"
