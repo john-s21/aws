@@ -10,7 +10,7 @@ resource "aws_instance" "Jenkins-Master" {
 
   tags = {
     Terraform   = "True"
-    Environment =          "DEV"
+    Environment =          "DE"
     Name        = "Jenkins-Server-${count.index}"
   }
 }
