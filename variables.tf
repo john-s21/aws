@@ -1,3 +1,4 @@
+#Maps the region for the instance
 variable "ec2_ami" {
   type = map(any)
 
@@ -7,6 +8,7 @@ variable "ec2_ami" {
   }
 }
 
+#Maps existing pem key for the instance
 variable "keyname" {
   type = map(any)
 
@@ -16,12 +18,12 @@ variable "keyname" {
   }
 }
 
-# Creating a Variable for instance_type
+# Creates a Variable for instance_type
 variable "instance_type" {
   type = string
 }
 
-#Creating a variable for region
+#Creates a variable for region
 variable "region" {
   type = string
 }
