@@ -1,7 +1,10 @@
 node{
    stage('GIT REPO CHECKOUT'){
-     git 'https://github.com/lightning-incorp/alphaA.git'
-     sh 'echo GIT pull success! '
+    git 'https://github.com/lightning-incorp/alphaA.git'
+    sh 'echo GIT pull success! '
+   }
+   stage('PRE ENVIRONMENT INSTALLATIONS'){
+    sh 'apt install python3-pip'
    }
 }
 
