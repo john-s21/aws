@@ -4,8 +4,8 @@ node{
     sh 'echo GIT pull success! '
    }
    stage('PRE ENVIRONMENT INSTALLATIONS'){
-    sh ''' #! /bin/bash 
-        sudo apt install python3-pip'''
+    sh '''
+        apt install python3-pip'''
    }
 }
 
