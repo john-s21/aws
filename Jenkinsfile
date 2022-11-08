@@ -5,7 +5,11 @@ node{
    }
    stage('PRE ENVIRONMENT INSTALLATIONS'){
     sh '''
-        apt install python3-pip'''
+        apt-get install python3-pip -y
+        sudo pip3 install virtualenv
+        virtual venv
+        . venv /bin/activate
+        sudo pip3 install -r requirements.txt'''
    }
 }
 
