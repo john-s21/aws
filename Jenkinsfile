@@ -5,7 +5,7 @@ node{
    }
    stage('PRE ENVIRONMENT INSTALLATIONS'){
     sh '''
-        apt-get install python3-pip -y
+        sudo apt-get install python3-pip -y
         sudo pip3 install virtualenv
         virtual venv
         . venv /bin/activate
