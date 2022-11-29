@@ -1,15 +1,20 @@
 node{
    stage('GIT REPO CHECKOUT'){
-    git 'https://github.com/lightning-incorp/alphaA.git'
-    sh 'echo GIT pull success! '
+      git 'https://github.com/lightning-incorp/alphaA.git'
+      sh 'echo GIT pull success! '
    }
    stage('PRE ENVIRONMENT INSTALLATIONS'){
-    sh '''
-        sudo apt-get install python3-pip -y
-        sudo pip3 install virtualenv
-        virtual venv
-        . venv /bin/activate
-        sudo pip3 install -r requirements.txt'''
+      sh '''
+         sudo apt-get install python3-pip -y
+         sudo pip3 install virtualenv
+         virtualenv venv
+         . venv /bin/activate
+         sudo pip3 install -r requirements.txt'''
+   }
+   stage('APACHE CONFIG'){
+      sh '''
+         
+      '''
    }
 }
 
