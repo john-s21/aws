@@ -27,7 +27,7 @@ pipeline {
 
         stage('Code check') {
             steps {
-                sh 'terraform smt'
+                sh 'terraform fmt'
             }
         }
     }
