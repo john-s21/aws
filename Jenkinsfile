@@ -51,7 +51,7 @@ pipeline {
 //    }
 //    stage('APACHE CONFIG'){
 //       sh '''
-         
+          echo "apache configuration required"
 //       '''
 //    }
 // }
