@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Repository Checkout') {
+        stage('Repo Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/john-s21/aws.git'
             }
