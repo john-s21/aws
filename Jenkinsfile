@@ -12,11 +12,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/john-s21/aws.git'
             }
         }
-        stage('Upgrade phase') {
-            steps {
-                sh 'terraform init -upgrade'
-            }
-        }
         stage('Initialize phase') {
             steps {
                 sh 'terraform init'
