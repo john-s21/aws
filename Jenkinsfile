@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage('Initialize') {
+        stage('Initialize phase') {
             steps {
                 sh 'terraform init'
             }
