@@ -19,26 +19,17 @@ pipeline {
             }
         }
 
-        stage('Parallel Initialization and Validation') {
-            parallel {
-                stage('Initializing Directory') {
-                    steps {
-                        sh 'terraform init'
-                    }
-                }
-                stage('Checking Configuration') {
-                    steps {
-                        sh 'terraform validate'
-                    }
-                }
+        stage('Initialize Directory') {
+            steps {
+                sh 'terraform init'
             }
         }
 
-        stage('Parallel Formatting and Infrastructure Preview') {
+        stage('Validate and Plan') {
             parallel {
-                stage('Formatting Configuration') {
+                stage('Validate Configuration') {
                     steps {
-                        sh 'terraform fmt'
+                        sh 'terraform validate'
                     }
                 }
                 stage('Infrastructure Preview') {
@@ -48,8 +39,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Formatting Configuration') {
+            steps {
+                sh 'terraform fmt'
+            }
+        }
     }
 }
+
 
 
 // pipeline {
