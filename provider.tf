@@ -7,8 +7,8 @@ terraform {
   }
 }
 
-#provider "aws" {
+provider "aws" {
   # Configuration options
-  # profile = "john"
-   # region  = var.region
-#}
+   profile = "john"
+   region  = var.region
+}
