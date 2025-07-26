@@ -11,11 +11,11 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('SCM Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/john-s21/aws.git'
-            }
-        }
+        // stage('SCM Checkout') {
+        //     steps {
+        //         git branch: 'main', url: 'https://github.com/john-s21/aws.git'
+        //     }
+        // }
         stage('Initializing Directory ') {
             steps {
                 sh 'terraform init'
