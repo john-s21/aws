@@ -1,44 +1,98 @@
 pipeline {
     agent any
 
-     environment {
-         AWS_ACCESS_KEY_ID = credentials('aws-access-key')
-         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
     }
+
     stages {
         stage('Preparing Workspace') {
             steps {
                 cleanWs()
             }
         }
+        
         stage('Remote Repository Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/john-s21/aws.git'
             }
         }
-        stage('Initializing Directory ') {
-            steps {
-                sh 'terraform init'
-            }
-        }
-        stage('Checking Configuration') {
-            steps {
-                sh 'terraform validate'
-            }
-        }
-        stage('Infrastructure Preview') {
-            steps {
-                sh 'terraform plan -out aws-tf'
+
+        stage('Parallel Initialization and Validation') {
+            parallel {
+                stage('Initializing Directory') {
+                    steps {
+                        sh 'terraform init'
+                    }
+                }
+                stage('Checking Configuration') {
+                    steps {
+                        sh 'terraform validate'
+                    }
+                }
             }
         }
 
-        stage('Formatting Configuration') {
-            steps {
-                sh 'terraform fmt'
+        stage('Parallel Formatting and Infrastructure Preview') {
+            parallel {
+                stage('Formatting Configuration') {
+                    steps {
+                        sh 'terraform fmt'
+                    }
+                }
+                stage('Infrastructure Preview') {
+                    steps {
+                        sh 'terraform plan -out aws-tf'
+                    }
+                }
             }
         }
     }
 }
+
+
+// pipeline {
+//     agent any
+
+//      environment {
+//          AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+//          AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
+//     }
+//     stages {
+//         stage('Preparing Workspace') {
+//             steps {
+//                 cleanWs()
+//             }
+//         }
+//         stage('Remote Repository Checkout') {
+//             steps {
+//                 git branch: 'main', url: 'https://github.com/john-s21/aws.git'
+//             }
+//         }
+//         stage('Initializing Directory ') {
+//             steps {
+//                 sh 'terraform init'
+//             }
+//         }
+//         stage('Checking Configuration') {
+//             steps {
+//                 sh 'terraform validate'
+//             }
+//         }
+//         stage('Infrastructure Preview') {
+//             steps {
+//                 sh 'terraform plan -out aws-tf'
+//             }
+//         }
+
+//         stage('Formatting Configuration') {
+//             steps {
+//                 sh 'terraform fmt'
+//             }
+//         }
+//     }
+// }
 
 
 
