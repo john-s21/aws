@@ -5,12 +5,12 @@ pipeline {
          AWS_ACCESS_KEY_ID = credentials('aws-access-key')
          AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
     }
-    stage('Preparing Workspace') {
+    stages {
+        stage('Preparing Workspace') {
             steps {
                 cleanWs()
             }
         }
-    stages {
         stage('SCM Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/john-s21/aws.git'
