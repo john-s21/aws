@@ -5,27 +5,23 @@ pipeline {
         AWS_ACCESS_KEY_ID = credentials('aws-access-key')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
     }
-
     stages {
         stage('Preparing Workspace') {
             steps {
                 cleanWs()
             }
-        }
-        
+        }     
         stage('Remote Repository Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/john-s21/aws.git'
             }
         }
-
         stage('Initialize Directory') {
             steps {
                 sh 'terraform init'
             }
         }
-
-        stage('Validate and Plan') {
+        stage('+Parallel Optimization+') {
             parallel {
                 stage('Validate Configuration') {
                     steps {
@@ -39,7 +35,6 @@ pipeline {
                 }
             }
         }
-
         stage('Formatting Configuration') {
             steps {
                 sh 'terraform fmt'
