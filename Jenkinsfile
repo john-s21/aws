@@ -7,28 +7,28 @@ pipeline {
     }
 
     stages {
-        stage('Repository Checkout') {
+        stage('SCM Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/john-s21/aws.git'
             }
         }
-        stage('Initialize phase') {
+        stage('Initializing Directory ') {
             steps {
                 sh 'terraform init'
             }
         }
-        stage('Checking configuration') {
+        stage('Checking Configuration') {
             steps {
                 sh 'terraform validate'
             }
         }
-        stage('Plan') {
+        stage('Infrastructure Preview') {
             steps {
                 sh 'terraform plan'
             }
         }
 
-        stage('Code check') {
+        stage('Formatting Configuration') {
             steps {
                 sh 'terraform fmt'
             }
