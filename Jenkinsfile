@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Infrastructure Preview') {
             steps {
-                sh 'terraform plan'
+                sh 'terraform plan -out aws-tf'
             }
         }
 
